@@ -16,7 +16,12 @@ class Pokelist extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const int more = 30;
+<<<<<<< HEAD
     final pokeCount = ref.watch(pokeCounterProvider);
+=======
+    int pokeCount = more;
+    final pokeCounterProvider = StateProvider((state) => pokeCount);
+>>>>>>> 8f0b88b5d39e088f40600399360b6e7081c13f85
     final pokemonsNotifier = ref.watch(pokemonsProvider.notifier);
 
     return ListView.builder(
@@ -28,12 +33,21 @@ class Pokelist extends ConsumerWidget {
             child: const Text('more'),
             onPressed: () => {
               /// moreボタン押下後、追加分の表示ができていない
+<<<<<<< HEAD
               if (pokeCount > pokeMaxId)
                 {ref.read(pokeCounterProvider.notifier).state = pokeMaxId}
               else
                 {
                   ref.read(pokeCounterProvider.notifier).state =
                       ref.read(pokeCounterProvider.notifier).state + more
+=======
+              if (pokeCount > pokeMaxId) {
+                 pokeCount =
+                      ref.read(pokeCounterProvider.notifier).state = pokeMaxId;
+                } else {
+                 pokeCount =
+                      ref.read(pokeCounterProvider.notifier).state + more;
+>>>>>>> 8f0b88b5d39e088f40600399360b6e7081c13f85
                 }
             },
           );
